@@ -11,7 +11,7 @@
     <title>Etrain</title>
     <link
         rel="icon"
-        href="img/favicon.png"
+        href="{{asset("front/img")}}/favicon.png"
     >
     <!-- Bootstrap CSS -->
     <link
