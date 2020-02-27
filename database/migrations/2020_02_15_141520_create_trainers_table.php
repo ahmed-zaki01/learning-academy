@@ -15,9 +15,9 @@ class CreateTrainersTable extends Migration {
          $table->bigIncrements('id');
          $table->string('name');
          $table->string('email');
-         $table->string('phone');
+         $table->string('phone')->nullable();;
          $table->string('spec');
-         $table->string('img')->nullable();
+         $table->string('img');
          $table->timestamps();
       });
    }
