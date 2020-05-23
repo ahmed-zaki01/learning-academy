@@ -18,8 +18,8 @@ class CreateCoursesTable extends Migration {
          $table->string('short_desc');
          $table->text('desc')->nullable();
          $table->string('img')->nullable();
-         $table->unsignedBigInteger('category_id');
-         $table->foreign('category_id')->references('id')->on('categories');
+         $table->unsignedBigInteger('cat_id');
+         $table->foreign('cat_id')->references('id')->on('cats');
          $table->unsignedBigInteger('trainer_id');
          $table->foreign('trainer_id')->references('id')->on('trainers');
          $table->timestamps();
