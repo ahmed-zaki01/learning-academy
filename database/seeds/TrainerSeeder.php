@@ -13,35 +13,35 @@ class TrainerSeeder extends Seeder {
       Trainer::create([
          'name' => 'ahmed zaki',
          'email' => 'az@gmail.com',
-         'spec' => 'web development',
-         'img' => '1.png.',
+         'spec' => 'web developer',
+         'img' => '1.png',
       ]);
 
       Trainer::create([
          'name' => 'kareem fouad',
          'email' => 'km@gmail.com',
-         'spec' => 'web development',
+         'spec' => 'full stack developer',
          'img' => '2.png',
       ]);
 
       Trainer::create([
          'name' => 'abdallah eid',
          'email' => 'ae@gmail.com',
-         'spec' => 'mobile development',
+         'spec' => 'english teacher',
          'img' => '3.png',
       ]);
 
       Trainer::create([
          'name' => 'mohamed mohsen',
          'email' => 'mm@gmail.com',
-         'spec' => 'web development',
+         'spec' => 'web developer',
          'img' => '4.png',
       ]);
 
       Trainer::create([
          'name' => 'ahmed adel',
          'email' => 'aa@gmail.com',
-         'spec' => 'engineering',
+         'spec' => 'doctor',
          'img' => '5.png',
       ]);
 

@@ -13,15 +13,15 @@ class CreateCoursesTable extends Migration {
    public function up() {
       Schema::create('courses', function (Blueprint $table) {
          $table->bigIncrements('id');
+         $table->unsignedBigInteger('cat_id');
+         $table->foreign('cat_id')->references('id')->on('cats');
+         $table->unsignedBigInteger('trainer_id');
+         $table->foreign('trainer_id')->references('id')->on('trainers');
          $table->string('name');
          $table->integer('price');
          $table->string('short_desc');
          $table->text('desc')->nullable();
          $table->string('img')->nullable();
-         $table->unsignedBigInteger('cat_id');
-         $table->foreign('cat_id')->references('id')->on('cats');
-         $table->unsignedBigInteger('trainer_id');
-         $table->foreign('trainer_id')->references('id')->on('trainers');
          $table->timestamps();
       });
    }

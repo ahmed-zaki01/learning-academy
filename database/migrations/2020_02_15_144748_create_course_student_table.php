@@ -17,7 +17,7 @@ class CreateCourseStudentTable extends Migration {
          $table->foreign('course_id')->references('id')->on('courses');
          $table->unsignedBigInteger('student_id');
          $table->foreign('student_id')->references('id')->on('students');
-         $table->enum('status', ['approved', 'rejected']);
+         $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
          $table->timestamps();
       });
    }
