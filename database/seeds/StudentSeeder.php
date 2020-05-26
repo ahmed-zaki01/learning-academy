@@ -10,6 +10,6 @@ class StudentSeeder extends Seeder {
     * @return void
     */
    public function run() {
-      factory(Student::class, 40)->create();
+      factory(Student::class, 50)->create();
    }
 }
