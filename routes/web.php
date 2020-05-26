@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::namespace ('Front')->group(function () {
-   Route::get('/', 'HomeController@index');
+Route::namespace('Front')->group(function () {
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/courses/cat/{id}', 'CourseController@showCat')->name('coursesCat');
 });
