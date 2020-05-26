@@ -15,4 +15,9 @@ class CourseController extends Controller
 
         return view('front.courses.cat')->with($data);
     }
+
+    public function show($id) {
+        $data['course'] = Course::findOrFail($id);
+        return view('front.courses.course-details')->with($data);
+    }
 }

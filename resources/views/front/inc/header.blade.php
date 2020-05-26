@@ -30,11 +30,7 @@
 
 <body>
     <!--::header part start::-->
-    <header class="main_menu @if (Route::current()->getName() == 'home')
-        home_menu
-    @else
-        single_page_menu
-    @endif ">
+    <header class="main_menu @if(Route::current()->getName() == 'home')home_menu @else single_page_menu @endif">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
