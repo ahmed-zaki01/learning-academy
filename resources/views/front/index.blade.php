@@ -13,15 +13,8 @@
                         <h5>Every child yearns to learn</h5>
                         <h1>Making Your Childs
                             World Better</h1>
-                        <p>Replenish seasons may male hath fruit beast were seas saw you arrie said
-                            man
-                            beast whales
-                            his void unto last session for bite. Set have great you'll male grass
-                            yielding
-                            yielding
-                            man</p>
-                        <a href="#" class="btn_1">View Course </a>
-                        <a href="#" class="btn_2">Get Started </a>
+                        <p>Replenish seasons may male hath fruit beast were seas saw you arrie said man beast whales his void unto last session for bite. Set have great you'll male grass yielding man</p>
+                        <a href="{{ route('contact') }}" class="btn_2">Get Started </a>
                     </div>
                 </div>
             </div>
@@ -39,7 +32,7 @@
                     <h2>Awesome <br> Feature</h2>
                     <p>Set have great you male grass yielding an yielding first their you're
                         have called the abundantly fruit were man </p>
-                    <a href="#" class="btn_1">Read More</a>
+                    <a href="{{ route('about') }}" class="btn_1">Read More</a>
                 </div>
             </div>
             <div class="col-sm-6 col-xl-3">
@@ -124,9 +117,9 @@
                 <div class="single_special_cource">
                     <img src="{{asset('uploads/courses/'.$course->img)}}" class="special_img" alt="">
                     <div class="special_cource_text">
-                        <a href="course-details.html" class="btn_4">{{$course->cat->name}}</a>
+                        <a href="{{ route('coursesCat', $course->cat->id) }}" class="btn_4">{{$course->cat->name}}</a>
                         <h4>${{$course->price}}</h4>
-                        <a href="course-details.html">
+                        <a href="{{ route('courseDetails', $course->id) }}">
                             <h3>{{$course->name}}</h3>
                         </a>
                         <p>{{$course->short_desc}}</p>
