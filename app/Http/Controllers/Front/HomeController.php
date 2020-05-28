@@ -26,18 +26,4 @@ class HomeController extends Controller
 
         return view('front.index')->with($data);
     }
-
-    public function showAbout()
-    {
-        // data of counter section
-        $data['courseNum'] = Course::count();
-        $data['trainerNum'] = Trainer::count();
-        $data['studentNum'] = Student::count();
-
-        return view('front.about')->with($data);
-    }
-    public function showContact()
-    {
-        return view('front.contact');
-    }
 }
