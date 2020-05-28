@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Course;
+use App\SiteContent;
 use App\Student;
 use App\Test;
 use App\Trainer;
@@ -12,6 +13,9 @@ class HomeController extends Controller
 {
     public function index()
     {
+        // data of homepage banner section
+        $data['bannerContent'] = SiteContent::select('content')->where('name', 'banner')->first();
+
         // data of course card section
         $data['courses'] = Course::select('id', 'cat_id', 'trainer_id', 'name', 'price', 'short_desc', 'img')->orderBy('id', 'desc')->take(3)->get();
 
@@ -24,6 +28,6 @@ class HomeController extends Controller
 
         //dd($data['tests']);
 
-        return view('front.index')->with($data);
+        return view('front.home')->with($data);
     }
 }
