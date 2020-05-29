@@ -16,6 +16,9 @@ Route::namespace('Front')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/about', 'AboutController')->name('about');
     Route::get('/contact', 'ContactController')->name('contact');
+    Route::post('/handle-newsletter', 'ContactController@handleNewsletter')->name('message.newsletter');
+    Route::post('/handle-contact', 'ContactController@handleContact')->name('message.contact');
     Route::get('/cat/{id}', 'CourseController@showCat')->name('coursesCat');
     Route::get('/courses/{id}', 'CourseController@show')->name('courseDetails');
+    Route::post('/handle-enroll', 'ContactController@handleEnroll')->name('message.enroll');
 });
