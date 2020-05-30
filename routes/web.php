@@ -18,7 +18,17 @@ Route::namespace('Front')->group(function () {
     Route::get('/contact', 'ContactController')->name('contact');
     Route::post('/handle-newsletter', 'ContactController@handleNewsletter')->name('message.newsletter');
     Route::post('/handle-contact', 'ContactController@handleContact')->name('message.contact');
+    Route::post('/handle-enroll', 'ContactController@handleEnroll')->name('message.enroll');
     Route::get('/cat/{id}', 'CourseController@showCat')->name('coursesCat');
     Route::get('/courses/{id}', 'CourseController@show')->name('courseDetails');
-    Route::post('/handle-enroll', 'ContactController@handleEnroll')->name('message.enroll');
+});
+
+Route::namespace('Dashboard')->prefix('dashboard')->group(function () {
+    Route::get('/login', 'AuthController@login')->name('admin.login');
+    Route::post('/login', 'AuthController@attemptUser')->name('admin.attempt');
+    Route::middleware('authAdmin')->group(function () {
+        Route::get('/logout', 'AuthController@logout')->name('admin.logout');
+        Route::get('/', 'HomeController@index')->name('admin.home');
+        Route::get('/cats', 'CatController@index')->name('admin.cats');
+    });
 });
