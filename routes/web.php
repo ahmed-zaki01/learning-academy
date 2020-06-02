@@ -29,6 +29,32 @@ Route::namespace('Dashboard')->prefix('dashboard')->group(function () {
     Route::middleware('authAdmin')->group(function () {
         Route::get('/logout', 'AuthController@logout')->name('admin.logout');
         Route::get('/', 'HomeController@index')->name('admin.home');
-        Route::get('/cats', 'CatController@index')->name('admin.cats');
+
+        Route::prefix('cats')->group(function () {
+            Route::get('/', 'CatController@index')->name('admin.cats');
+            Route::get('/create', 'CatController@create')->name('admin.cats.create');
+            Route::post('/store', 'CatController@store')->name('admin.cats.store');
+            Route::get('/edit/{id}', 'CatController@edit')->name('admin.cats.edit');
+            Route::post('/update', 'CatController@update')->name('admin.cats.update');
+            Route::get('/delete/{id}', 'CatController@destroy')->name('admin.cats.delete');
+        });
+
+        Route::prefix('trainers')->group(function () {
+            Route::get('/', 'TrainerController@index')->name('admin.trainers');
+            Route::get('/create', 'TrainerController@create')->name('admin.trainers.create');
+            Route::post('/store', 'TrainerController@store')->name('admin.trainers.store');
+            Route::get('/edit/{id}', 'TrainerController@edit')->name('admin.trainers.edit');
+            Route::post('/update', 'TrainerController@update')->name('admin.trainers.update');
+            Route::get('/delete/{id}', 'TrainerController@destroy')->name('admin.trainers.delete');
+        });
+
+        Route::prefix('courses')->group(function () {
+            Route::get('/', 'CourseController@index')->name('admin.courses');
+            Route::get('/create', 'CourseController@create')->name('admin.courses.create');
+            Route::post('/store', 'CourseController@store')->name('admin.courses.store');
+            Route::get('/edit/{id}', 'CourseController@edit')->name('admin.courses.edit');
+            Route::post('/update', 'CourseController@update')->name('admin.courses.update');
+            Route::get('/delete/{id}', 'CourseController@destroy')->name('admin.courses.delete');
+        });
     });
 });

@@ -28,10 +28,40 @@
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="{{ route('admin.home') }}">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Manage</a>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle shadow-none text-white" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                            <a class="dropdown-item" href="{{ route('admin.cats') }}">View Cats</a>
+                            <a class="dropdown-item" href="{{ route('admin.cats.create') }}">Add New</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle shadow-none text-white" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Trainers
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                            <a class="dropdown-item" href="{{ route('admin.trainers') }}">View Trainers</a>
+                            <a class="dropdown-item" href="{{ route('admin.trainers.create') }}">Add New</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle shadow-none text-white" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Courses
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                            <a class="dropdown-item" href="{{ route('admin.courses') }}">View Courses</a>
+                            <a class="dropdown-item" href="{{ route('admin.courses.create') }}">Add New</a>
+                        </div>
+                    </div>
                 </li>
 
             </ul>
