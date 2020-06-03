@@ -56,5 +56,14 @@ Route::namespace('Dashboard')->prefix('dashboard')->group(function () {
             Route::post('/update', 'CourseController@update')->name('admin.courses.update');
             Route::get('/delete/{id}', 'CourseController@destroy')->name('admin.courses.delete');
         });
+
+        Route::prefix('students')->group(function () {
+            Route::get('/', 'StudentController@index')->name('admin.students');
+            Route::get('/create', 'StudentController@create')->name('admin.students.create');
+            Route::post('/store', 'StudentController@store')->name('admin.students.store');
+            Route::get('/edit/{id}', 'StudentController@edit')->name('admin.students.edit');
+            Route::post('/update', 'StudentController@update')->name('admin.students.update');
+            Route::get('/delete/{id}', 'StudentController@destroy')->name('admin.students.delete');
+        });
     });
 });
