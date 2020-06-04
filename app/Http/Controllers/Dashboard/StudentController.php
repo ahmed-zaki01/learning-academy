@@ -110,7 +110,7 @@ class StudentController extends Controller
         $studentCourses = DB::table('course_student')->select('course_id')->where('student_id', $id)->get();
         foreach ($studentCourses as $courseId) {
             if ($data['course_id'] == $courseId->course_id) {
-                return redirect(route('admin.students.showCourses', $id));
+                return redirect(route('admin.students.showCourses', $id))->withErrors(['msg' => 'Student is already registered!']);
             }
         }
 

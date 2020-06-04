@@ -67,6 +67,12 @@ class ContactController extends Controller
             $studentId = $student->id;
         } else {
             $studentId = $oldStudent->id;
+            $studentCourses = DB::table('course_student')->select('course_id')->where('student_id', $studentId)->get();
+            foreach ($studentCourses as $courseId) {
+                if ($data['course_id'] == $courseId->course_id) {
+                    return redirect(route('courseDetails', $data['course_id']))->withErrors(['msg' => 'You are already registered!']);
+                }
+            }
             if ($data['name'] || $data['spec'] || $data['phone']) {
                 $oldStudent->update(['name' => $data['name']]);
             }

@@ -14,6 +14,7 @@
         <a href="{{ route('admin.students') }}" class="btn btn-primary">Back</a>
     </div>
 </div>
+@include('partials.errors')
 <table class="table table-striped table-inverse text-center">
     <thead class="thead-inverse">
         <tr>
