@@ -25,7 +25,7 @@
     <tbody>
         @foreach ($students as $i => $student)
         <tr id="row-data">
-            <td scope="row">{{$loop->iteration}}</td>
+            <td scope="row">{{ ($students->currentPage() * 10 - 10) + ($i+1) }}</td>
             <td>{{ $student->name }}</td>
             <td>{{ $student->email }}</td>
             <td>{{ $student->phone }}</td>
@@ -39,6 +39,7 @@
             <td>
                 <a href="{{ route('admin.students.edit', $student->id) }}" class="btn btn-info">Edit</a>
                 <a href="{{ route('admin.students.delete', $student->id) }}" class="btn btn-danger">Delete</a>
+                <a href="{{ route('admin.students.showCourses', $student->id) }}" class="btn btn-danger">Show Courses</a>
             </td>
         </tr>
         @endforeach

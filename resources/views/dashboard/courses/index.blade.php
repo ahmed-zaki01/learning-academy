@@ -24,9 +24,9 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($courses as $course)
+        @foreach ($courses as $i => $course)
         <tr id="row-data">
-            <td scope="row">{{ $loop->iteration }}</td>
+            <td scope="row">{{ ($courses->currentPage() * 10 - 10) + ($i+1) }}</td>
             <td><img src="{{ asset('uploads/courses/'.$course->img) }}" height="50px" style="border-radius: 50%;" alt="{{ $course->img }}"></td>
             <td>{{ $course->name }}</td>
             <td>${{ $course->price }}</td>

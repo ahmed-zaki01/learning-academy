@@ -63,7 +63,7 @@
                         </li>
                     </ul>
                 </div>
-
+                @include('partials.errors')
                 <h4 class="title">Register Now</h4>
                 <div class="content">
                     <form class="form-contact contact_form" action="{{ route('message.enroll') }}" method="post">

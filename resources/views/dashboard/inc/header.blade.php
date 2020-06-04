@@ -13,6 +13,11 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
+
+        }
+
+        body * {
+            box-shadow: none !important;
         }
     </style>
     @yield('styles')

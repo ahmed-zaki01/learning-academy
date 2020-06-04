@@ -64,6 +64,12 @@ Route::namespace('Dashboard')->prefix('dashboard')->group(function () {
             Route::get('/edit/{id}', 'StudentController@edit')->name('admin.students.edit');
             Route::post('/update', 'StudentController@update')->name('admin.students.update');
             Route::get('/delete/{id}', 'StudentController@destroy')->name('admin.students.delete');
+            Route::get('/show-courses/{id}', 'StudentController@showCourses')->name('admin.students.showCourses');
+            Route::get('/{id}/courses/{c_id}/approve', 'StudentController@approveCourse')->name('admin.students.approveCourse');
+            Route::get('/{id}/courses/{c_id}/reject', 'StudentController@rejectCourse')->name('admin.students.rejectCourse');
+            Route::get('/{id}/courses/{c_id}/pending', 'StudentController@pendCourse')->name('admin.students.pendingCourse');
+            Route::get('/{id}/add-to-course', 'StudentController@addCourse')->name('admin.students.addCourse');
+            Route::post('/{id}/store-course', 'StudentController@storeCourse')->name('admin.students.storeCourse');
         });
     });
 });

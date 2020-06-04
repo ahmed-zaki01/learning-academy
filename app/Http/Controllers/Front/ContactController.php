@@ -48,20 +48,37 @@ class ContactController extends Controller
     {
         $data = $request->validate([
             'course_id' => 'required|exists:courses,id',
-            'name' => 'required|string|max:191',
+            'name' => 'nullable|string|max:191',
             'email' => 'required|email|max:191',
             'phone' => 'nullable|string|max:191',
             'spec' => 'nullable|string|max:191',
         ]);
 
-        $student = Student::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'phone' => $data['phone'],
-            'spec' => $data['spec'],
-        ]);
+        $oldStudent = Student::select('id')->where('email', $data['email'])->first();
 
-        $studentId = $student->id;
+        if (!$oldStudent) {
+            $student = Student::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'phone' => $data['phone'],
+                'spec' => $data['spec'],
+            ]);
+
+            $studentId = $student->id;
+        } else {
+            $studentId = $oldStudent->id;
+            if ($data['name'] || $data['spec'] || $data['phone']) {
+                $oldStudent->update(['name' => $data['name']]);
+            }
+            if ($data['spec']) {
+
+                $oldStudent->update(['spec' => $data['spec']]);
+            }
+            if ($data['phone']) {
+
+                $oldStudent->update(['phone' => $data['phone']]);
+            }
+        }
 
         DB::table('course_student')->insert([
             'course_id' => $data['course_id'],

@@ -14,7 +14,7 @@ class CourseController extends Controller
 {
     public function index()
     {
-        $data['courses'] = Course::select('id', 'cat_id', 'trainer_id', 'name', 'price', 'img')->paginate(10);
+        $data['courses'] = Course::select('id', 'cat_id', 'trainer_id', 'name', 'price', 'img')->orderBy('id', 'desc')->paginate(10);
 
         return view('dashboard.courses.index')->with($data);
     }
