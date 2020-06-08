@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCourse;
 use Illuminate\Support\Facades\Storage;
 use App\Course;
 use App\Cat;
@@ -26,17 +27,20 @@ class CourseController extends Controller
         return view('dashboard.courses.create')->with($data);
     }
 
-    public function store(Request $request)
+    public function store(StoreCourse $request)
     {
-        $data = $request->validate([
-            'name' => 'required|string|max:60',
-            'price' => 'required|integer',
-            'short_desc' => 'required|string|max:191',
-            'desc' => 'required|string',
-            'cat_id' => 'required|exists:cats,id',
-            'trainer_id' => 'required|exists:trainers,id',
-            'img' => 'required|image|mimes:jpg,png,jpeg',
-        ]);
+        // $data = $request->validate([
+        //     'name' => 'required|string|max:60',
+        //     'price' => 'required|integer',
+        //     'short_desc' => 'required|string|max:191',
+        //     'desc' => 'required|string',
+        //     'cat_id' => 'required|exists:cats,id',
+        //     'trainer_id' => 'required|exists:trainers,id',
+        //     'img' => 'required|image|mimes:jpg,png,jpeg',
+        // ]);
+
+        //dd($request->validated());
+        $data = $request->validated();
 
         $imgNewName = $data['img']->hashName();
         Image::make($data['img'])->resize(570, 591)->save(public_path('uploads/courses/' . $imgNewName));
